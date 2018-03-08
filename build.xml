@@ -1,0 +1,22 @@
+<project name="Ant" default="run" basedir=".">
+
+<target name = "clean">
+	<delete dir = "build"/>
+</target>
+
+
+<target name="compile" depends="clean">
+	<mkdir dir = "build"/>
+	<javac srcdir="src/main" destdir="build" includeAntRuntime="false"/> 
+</target> 
+ 
+ <target name = "run" depends = "compile">
+	<java classname = "main.Test"> 
+		<classpath>
+			<pathelement path ="build"/>
+		</classpath>
+ 
+	</java>
+ </target>
+ 
+ </project>
